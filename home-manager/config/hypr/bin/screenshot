@@ -1,0 +1,4 @@
+#!/bin/bash
+
+grim 
+notify-send "screenshot saved"

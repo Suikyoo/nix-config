@@ -1,0 +1,14 @@
+#!/bin/bash
+
+paths=$(find . -type d -name node_modules -prune -print) 
+
+
+echo "$paths"
+printf "%s\n" "$paths" | xargs -d '\n' du -sb | awk '{sum+=$1} END {printf "size: %.2f GiB\n", sum/1024/1024/1024}'
+read -p "are you sure you want to clean the device? (y/n): " answer
+
+if [[ "$answer" == "n" || "$answer" == "N" ]]; then
+  exit 1 
+fi
+
+printf "%s\n" "$paths" | xargs -d '\n' rm -rf

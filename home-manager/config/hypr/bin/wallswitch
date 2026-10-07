@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ls ~/Pictures/Wallpapers/ | rofi -dmenu | xargs -I{} sh -c 'awww img ~/Pictures/Wallpapers/"{}" && 
+  matugen image --mode dark --contrast 0.7 --source-color-index 0 ~/Pictures/Wallpapers/"{}" &&
+  notify-send "UI theme changed" && 
+  reloadway &&
+  notify-send "waybar reloaded"'

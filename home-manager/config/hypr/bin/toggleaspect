@@ -1,0 +1,25 @@
+#! /bin/bash
+
+CACHE_DIR="$HOME/.cache/arch-stuff"
+
+if ! [[ -d "$CACHE_DIR" ]]; then 
+  mkdir $CACHE_DIR
+fi
+
+DATA_FILE="$HOME/.cache/arch-stuff/toggleaspect"
+
+if ! [[ -f "$DATA_FILE" ]]; then 
+  touch $DATA_FILE
+  echo 0 > $DATA_FILE
+fi
+
+VALUE=$(cat $DATA_FILE)
+
+if [[ $VALUE == 1 ]]; then
+  hyprctl keyword general:gaps_out 50, 200, 50, 200
+else
+  hyprctl keyword general:gaps_out 10, 5, 5, 5
+fi
+
+echo $(( ($VALUE + 1) % 2 )) > $DATA_FILE
+
