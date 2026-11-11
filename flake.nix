@@ -14,6 +14,22 @@
 
     nix-firefox-addons.url = "github:osipog/nix-firefox-addons";
     nix-firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
+    
+    inked-plugin = {
+      url = "github:Suikyoo/inked-plugin";
+      flake = false;  # plain source, the repo has no flake.nix
+    };
+
+    claude-plugins = {
+      url = "github:anthropics/claude-plugins-official";
+      flake = false;   # it's just a repo of files
+    };
+    superpower-plugin = {
+      url = "github:obra/superpowers";
+      flake = false;
+      };
+
+
   };
 
   outputs = {
@@ -21,10 +37,8 @@
     nixpkgs,
     home-manager,
     stylix,
-    nix-firefox-addons,
     ...
-  } @ inputs: let
-  in {
+  } @ inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {

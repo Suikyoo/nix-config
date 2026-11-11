@@ -68,6 +68,22 @@
         "type": "github"
       }
     },
+    "claude-plugins": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791397070,
+        "narHash": "sha256-BhlMwMsBlQ6fVz2gBNO2h2qu7IMcOwp76cLEfUsfPKw=",
+        "owner": "anthropics",
+        "repo": "claude-plugins-official",
+        "rev": "b78ac49cdc6b3d7b61c4439470e311f4291265b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anthropics",
+        "repo": "claude-plugins-official",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -163,17 +179,33 @@
         ]
       },
       "locked": {
-        "lastModified": 1789267039,
-        "narHash": "sha256-LWiBv9yAYFi2LPbUhDGHPGKYskJQjj2fw12OlyO1uQo=",
+        "lastModified": 1790996401,
+        "narHash": "sha256-f+kOxEmOUnQazVAmGg0i8hzwgd1kX/geY+k/Dpheye8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ec172013fa62135f58fb58dd17ae9651e8f39727",
+        "rev": "db7d5e2332710f5abb088f6b5de927d7f9511b35",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "ref": "release-26.05",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "inked-plugin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792100742,
+        "narHash": "sha256-6vX8fOXViBhpQuXF7zyI9BHWfWy4AAZmkci+6RHeGFs=",
+        "owner": "Suikyoo",
+        "repo": "inked-plugin",
+        "rev": "3896407715c5d47bf0924df33300c0d9494ac4dc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Suikyoo",
+        "repo": "inked-plugin",
         "type": "github"
       }
     },
@@ -241,10 +273,13 @@
     },
     "root": {
       "inputs": {
+        "claude-plugins": "claude-plugins",
         "home-manager": "home-manager",
+        "inked-plugin": "inked-plugin",
         "nix-firefox-addons": "nix-firefox-addons",
         "nixpkgs": "nixpkgs",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "superpower-plugin": "superpower-plugin"
       }
     },
     "stylix": {
@@ -278,6 +313,22 @@
         "owner": "danth",
         "ref": "release-26.05",
         "repo": "stylix",
+        "type": "github"
+      }
+    },
+    "superpower-plugin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790359587,
+        "narHash": "sha256-BWPiXoXV+jePP+wn/Z+Af4iehIL7oei00plaWaTzq8s=",
+        "owner": "obra",
+        "repo": "superpowers",
+        "rev": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "obra",
+        "repo": "superpowers",
         "type": "github"
       }
     },

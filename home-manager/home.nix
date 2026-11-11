@@ -14,6 +14,9 @@
 
     # You can also split up your configuration and import pieces of it here:
     ./nvim.nix
+    ./claude.nix
+    #./deepseek.nix
+    ./tmux.nix
     # ./hyprland.nix
     # ./csec.nix
   ];
@@ -47,6 +50,20 @@
 
   home.file."bin".source = ./bin;
   home.sessionPath = [ "${config.home.homeDirectory}/bin"];
+
+  # Playwright ships its own browser builds, and the ones npm downloads are dynamically linked against
+  # paths that do not exist on NixOS. These point it at the patched set in nixpkgs instead and stop it
+  # trying to download its own. The package carries Chromium (plus the headless shell), Firefox and
+  # WebKit, so there is nothing further to install.
+  #
+  # Playwright checks the browser *revision*, not just the version, so a project's npm `playwright` must
+  # be pinned to the same release as this package or it fails with "Executable doesn't exist at ...".
+  # Today that is 1.59.1 (chromium 1217); check with:
+  #   nix eval --raw nixpkgs#playwright-driver.version
+  home.sessionVariables = {
+    PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+    PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "1";
+  };
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
